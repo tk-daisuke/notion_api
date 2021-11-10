@@ -1,16 +1,28 @@
 # notion_api
 
-A new Flutter project.
+製作中
+
 
 ## Getting Started
+- 必須
 
-This project is a starting point for a Flutter application.
+API key、およびDatabase IDの取得が必要となります。
 
-A few resources to get you started if this is your first Flutter project:
+https://developers.notion.com/docs/getting-started
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
+-- 下記へファイルを作成し上記の API key、およびDatabase IDを入力します。
+lib/item/key.dart
+
+``` Dart
+const String apikey =  apikey ;
+const String databaseId = Database ID;
+```
+
+
+- 読み込むデータ
+
+https://nebula-podium-08d.notion.site/d88bbbbfbc29420b80eb648d65b3b567?v=b59a059bb0e54582bae9e0c21e81caad
