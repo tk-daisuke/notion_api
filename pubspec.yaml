@@ -17,6 +17,7 @@ dependencies:
   # flutter_hooks: ^0.18.0
   google_fonts: ^2.1.0
   riverpod: ^1.0.0 #https://pub.dev/packages/riverpod
+  dio: ^4.0.1 #https://pub.dev/packages/dio
 
 
 dev_dependencies:
@@ -25,8 +26,8 @@ dev_dependencies:
 
   flutter_lints: ^1.0.0
   build_runner: any
-  freezed: ^0.14.2 #https://pub.dev/packages/freezed
-  json_serializable: ^4.1.3 #https://pub.dev/packages/json_serializable/install
+  freezed: ^0.15.0+1 #https://pub.dev/packages/freezed
+  json_serializable: any
   # test: ^1.19.2 #https://pub.dev/packages/test
   golden_toolkit: ^0.11.0 #golden_toolkit
 
