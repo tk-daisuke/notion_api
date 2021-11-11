@@ -15,14 +15,8 @@ class NotionRepository {
             "Authorization": "Bearer " + apikey,
             "Notion-Version": "2021-08-16"
           }));
-      // print(response);
-
       if (response.statusCode == 200) {
-        final List json = _jsonDecode(response);
-        final List<Todo>? todoList =
-            json.map((e) => Todo.fromJson(_jsonSerial(e))).toList();
-        print(todoList);
-        return todoList;
+        return responseLoad(response.toString());
       } else {
         print(response.statusCode);
       }
@@ -31,17 +25,20 @@ class NotionRepository {
     }
   }
 
-  _jsonDecode(Response<dynamic> response) =>
-      jsonDecode(response.toString())['results'];
+  List<Todo>? responseLoad(String response) {
+    final List notionData = jsonDecode(response)['results'];
+    final List<Todo>? todoList =
+        notionData.map((e) => Todo.fromJson(_jsonParse(e))).toList();
+    return todoList;
+  }
 
-  Map<String, dynamic> _jsonSerial(Map<String, dynamic> map) {
+  Map<String, dynamic> _jsonParse(Map<String, dynamic> map) {
     final _item = map['properties'];
-    print(map['url']);
     Map<String, dynamic> items = {
-      'title': _item['title']['title'][0]['plain_text'],
-      'datetime': _item['datetime']['date']['start'],
-      'tag': _item['tag']['multi_select'][0]['name'],
-      'url': map['url']
+      'title': _item['title']['title'][0]['plain_text'] ?? '',
+      'datetime': _item['dateTime']['date']['start'] ?? '${DateTime.now()}',
+      'tag': _item['tag']['multi_select'][0]['name'] ?? 'tag',
+      'url': map['url'] ?? 'https://www.google.com/'
     };
     return items;
   }

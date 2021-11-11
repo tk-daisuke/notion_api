@@ -1,19 +1,14 @@
-import 'package:notion_api/item/key.dart';
-
 const notionDummyResponse = {
   "object": "list",
   "results": [
     {
       "object": "page",
-      "id": "dummy",
+      "id": "1f1f1b83-302d-4e15-af2c-0bcba18624cf",
       "created_time": "2021-11-09T08:10:00.000Z",
       "last_edited_time": "2021-11-09T15:55:00.000Z",
       "cover": null,
       "icon": null,
-      "parent": {
-        "type": "database_id",
-        "database_id": databaseId
-      },
+      "parent": {"type": "database_id", "database_id": "dummy"},
       "archived": false,
       "properties": {
         "dateTime": {
@@ -25,11 +20,7 @@ const notionDummyResponse = {
           "id": "%5DVPM",
           "type": "multi_select",
           "multi_select": [
-            {
-              "id": "dummy",
-              "name": "すぐやる",
-              "color": "red"
-            }
+            {"id": "dummy", "name": "すぐやる", "color": "red"}
           ]
         },
         "title": {
@@ -62,10 +53,7 @@ const notionDummyResponse = {
       "last_edited_time": "2021-11-09T15:55:00.000Z",
       "cover": null,
       "icon": null,
-      "parent": {
-        "type": "database_id",
-        "database_id": "dummy"
-      },
+      "parent": {"type": "database_id", "database_id": "dummy"},
       "archived": false,
       "properties": {
         "dateTime": {
@@ -77,11 +65,7 @@ const notionDummyResponse = {
           "id": "%5DVPM",
           "type": "multi_select",
           "multi_select": [
-            {
-              "id": "dummy",
-              "name": "tag2",
-              "color": "brown"
-            }
+            {"id": "dummy", "name": "tag2", "color": "brown"}
           ]
         },
         "title": {
@@ -114,10 +98,7 @@ const notionDummyResponse = {
       "last_edited_time": "2021-11-09T15:55:00.000Z",
       "cover": null,
       "icon": null,
-      "parent": {
-        "type": "database_id",
-        "database_id": "dummy"
-      },
+      "parent": {"type": "database_id", "database_id": "dummy"},
       "archived": false,
       "properties": {
         "dateTime": {
@@ -129,11 +110,7 @@ const notionDummyResponse = {
           "id": "%5DVPM",
           "type": "multi_select",
           "multi_select": [
-            {
-              "id": "dummy",
-              "name": "後",
-              "color": "blue"
-            }
+            {"id": "dummy", "name": "後", "color": "blue"}
           ]
         },
         "title": {
