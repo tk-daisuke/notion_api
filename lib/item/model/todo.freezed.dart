@@ -24,11 +24,13 @@ class _$TodoTearOff {
   _Todo call(
       {required String title,
       required String tag,
-      required DateTime datetime}) {
+      required DateTime datetime,
+      required String url}) {
     return _Todo(
       title: title,
       tag: tag,
       datetime: datetime,
+      url: url,
     );
   }
 
@@ -45,6 +47,7 @@ mixin _$Todo {
   String get title => throw _privateConstructorUsedError;
   String get tag => throw _privateConstructorUsedError;
   DateTime get datetime => throw _privateConstructorUsedError;
+  String get url => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -55,7 +58,7 @@ mixin _$Todo {
 abstract class $TodoCopyWith<$Res> {
   factory $TodoCopyWith(Todo value, $Res Function(Todo) then) =
       _$TodoCopyWithImpl<$Res>;
-  $Res call({String title, String tag, DateTime datetime});
+  $Res call({String title, String tag, DateTime datetime, String url});
 }
 
 /// @nodoc
@@ -71,6 +74,7 @@ class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
     Object? title = freezed,
     Object? tag = freezed,
     Object? datetime = freezed,
+    Object? url = freezed,
   }) {
     return _then(_value.copyWith(
       title: title == freezed
@@ -85,6 +89,10 @@ class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
           ? _value.datetime
           : datetime // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -94,7 +102,7 @@ abstract class _$TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
   factory _$TodoCopyWith(_Todo value, $Res Function(_Todo) then) =
       __$TodoCopyWithImpl<$Res>;
   @override
-  $Res call({String title, String tag, DateTime datetime});
+  $Res call({String title, String tag, DateTime datetime, String url});
 }
 
 /// @nodoc
@@ -111,6 +119,7 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
     Object? title = freezed,
     Object? tag = freezed,
     Object? datetime = freezed,
+    Object? url = freezed,
   }) {
     return _then(_Todo(
       title: title == freezed
@@ -125,6 +134,10 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
           ? _value.datetime
           : datetime // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -133,7 +146,10 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Todo with DiagnosticableTreeMixin implements _Todo {
   const _$_Todo(
-      {required this.title, required this.tag, required this.datetime});
+      {required this.title,
+      required this.tag,
+      required this.datetime,
+      required this.url});
 
   factory _$_Todo.fromJson(Map<String, dynamic> json) => _$$_TodoFromJson(json);
 
@@ -143,10 +159,12 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
   final String tag;
   @override
   final DateTime datetime;
+  @override
+  final String url;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Todo(title: $title, tag: $tag, datetime: $datetime)';
+    return 'Todo(title: $title, tag: $tag, datetime: $datetime, url: $url)';
   }
 
   @override
@@ -156,7 +174,8 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
       ..add(DiagnosticsProperty('type', 'Todo'))
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('tag', tag))
-      ..add(DiagnosticsProperty('datetime', datetime));
+      ..add(DiagnosticsProperty('datetime', datetime))
+      ..add(DiagnosticsProperty('url', url));
   }
 
   @override
@@ -167,11 +186,12 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.tag, tag) || other.tag == tag) &&
             (identical(other.datetime, datetime) ||
-                other.datetime == datetime));
+                other.datetime == datetime) &&
+            (identical(other.url, url) || other.url == url));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, title, tag, datetime);
+  int get hashCode => Object.hash(runtimeType, title, tag, datetime, url);
 
   @JsonKey(ignore: true)
   @override
@@ -188,7 +208,8 @@ abstract class _Todo implements Todo {
   const factory _Todo(
       {required String title,
       required String tag,
-      required DateTime datetime}) = _$_Todo;
+      required DateTime datetime,
+      required String url}) = _$_Todo;
 
   factory _Todo.fromJson(Map<String, dynamic> json) = _$_Todo.fromJson;
 
@@ -198,6 +219,8 @@ abstract class _Todo implements Todo {
   String get tag;
   @override
   DateTime get datetime;
+  @override
+  String get url;
   @override
   @JsonKey(ignore: true)
   _$TodoCopyWith<_Todo> get copyWith => throw _privateConstructorUsedError;

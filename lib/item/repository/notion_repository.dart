@@ -18,11 +18,9 @@ class NotionRepository {
       // print(response);
 
       if (response.statusCode == 200) {
-        final List json = jsonDecode(response.toString())['results'];
-        final List<Todo>? todoList = json.map((e) {
-          final items = _jsonSerial(e);
-          return Todo.fromJson(items);
-        }).toList();
+        final List json = _jsonDecode(response);
+        final List<Todo>? todoList =
+            json.map((e) => Todo.fromJson(_jsonSerial(e))).toList();
         print(todoList);
         return todoList;
       } else {
@@ -33,24 +31,18 @@ class NotionRepository {
     }
   }
 
+  _jsonDecode(Response<dynamic> response) =>
+      jsonDecode(response.toString())['results'];
+
   Map<String, dynamic> _jsonSerial(Map<String, dynamic> map) {
     final _item = map['properties'];
+    print(map['url']);
     Map<String, dynamic> items = {
       'title': _item['title']['title'][0]['plain_text'],
       'datetime': _item['datetime']['date']['start'],
-      'tag': _item['tag']['multi_select'][0]['name']
+      'tag': _item['tag']['multi_select'][0]['name'],
+      'url': map['url']
     };
     return items;
   }
 }
-
-
-        //             final Map<String, dynamic> json =
-        //     jsonDecode(response.toString())['results'][0]['properties'];
-        // Map<String, dynamic> items = {
-        //   'title': json['title']['title'][0]['plain_text'],
-        //   'datetime': json['datetime']['date']['start'],
-        //   'tag': json['tag']['multi_select'][0]['name']
-        // };
-
-        // final todo = Todo.fromJson(items);

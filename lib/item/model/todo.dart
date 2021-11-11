@@ -12,7 +12,8 @@ class Todo with _$Todo {
     required String title,
     required String tag,
     required DateTime datetime,
+    required String url,
   }) = _Todo;
 
-    factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);
+  factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);
 }

@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:notion_api/ui/home/home_screen.dart';
+import 'package:notion_api/ui/database/database_screen.dart';
 
 final bottomIndex = StateProvider<int>((ref) => 0);
 
-class Root extends HookConsumerWidget {
-  const Root({Key? key}) : super(key: key);
+class RootScreen extends HookConsumerWidget {
+  const RootScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final _index = ref.watch(bottomIndex.state);
     const pageWidgets = [
-      HomeScreen(),
+      DatabaseScreen(),
+      DatabaseScreen(),
     ];
     return Scaffold(
       bottomNavigationBar: const BottomNavigationItems(),
@@ -33,10 +34,15 @@ class BottomNavigationItems extends HookConsumerWidget {
       showUnselectedLabels: true,
       selectedFontSize: 10,
       unselectedFontSize: 10,
-      selectedItemColor: Colors.white,
-      unselectedItemColor: Colors.white,
+      // selectedItemColor: Colors.white,
+      // unselectedItemColor: Colors.white,
       type: BottomNavigationBarType.fixed,
       items: const [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home_outlined),
+          activeIcon: Icon(Icons.home),
+          label: 'データベース',
+        ),
         BottomNavigationBarItem(
           icon: Icon(Icons.home_outlined),
           activeIcon: Icon(Icons.home),
