@@ -33,6 +33,7 @@ dev_dependencies:
   json_serializable: any
   # test: ^1.19.2 #https://pub.dev/packages/test
   golden_toolkit: ^0.11.0 #golden_toolkit
+  mockito: ^5.0.0 #https://pub.dev/packages/mockito
 
 # The following section is specific to Flutter.
 flutter:
