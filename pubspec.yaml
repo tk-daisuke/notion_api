@@ -17,7 +17,7 @@ dependencies:
   # flutter_hooks: ^0.18.0
   google_fonts: ^2.1.0
   riverpod: ^1.0.0 #https://pub.dev/packages/riverpod
-  dio: ^4.0.1 #https://pub.dev/packages/dio
+  http: any
   intl: ^0.17.0 #https://pub.dev/packages/intl
   json_annotation: ^4.3.0 
   url_launcher: ^6.0.12
