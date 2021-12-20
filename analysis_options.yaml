@@ -2,9 +2,13 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
+  plugins:
+    - dart_code_metrics
   exclude:
     - "**/*.freezed.dart"
     - "**/*.g.dart"
+    - "**/**mocks.dart"
+    - "**/notion_dummy_response.dart"
 linter:
   rules:
   

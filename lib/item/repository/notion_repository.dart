@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -21,16 +22,20 @@ class NotionRepository {
         Uri.parse(url),
         headers: {
           "Authorization": "Bearer " + apikey,
-          "Notion-Version": "2021-08-16"
+          "Notion-Version": "2021-08-16",
         },
       );
       if (response.statusCode == 200) {
         return responseConvert(response.body.toString());
       } else {
-        print(response.statusCode);
+        if (kDebugMode) {
+          print(response.statusCode);
+        }
       }
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
     }
   }
 
@@ -48,8 +53,9 @@ class NotionRepository {
       'title': _item['title']?['title']?[0]?['plain_text'] ?? 'error',
       'datetime': _item['datetime']?['date']?['start'] ?? '${DateTime.now()}',
       'tag': _item['tag']?['multi_select']?[0]?['name'] ?? 'error',
-      'url': map['url'] ?? 'https://www.google.com/'
+      'url': map['url'] ?? 'https://www.google.com/',
     };
+
     return items;
   }
 }

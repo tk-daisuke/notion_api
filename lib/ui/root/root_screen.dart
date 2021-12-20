@@ -14,6 +14,7 @@ class RootScreen extends HookConsumerWidget {
       DatabaseScreen(),
       DatabaseScreen(),
     ];
+    
     return Scaffold(
       bottomNavigationBar: const BottomNavigationItems(),
       body: pageWidgets.elementAt(_index.state),

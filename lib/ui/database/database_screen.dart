@@ -33,8 +33,9 @@ class DatabaseScreen extends HookConsumerWidget {
               loading: () => const Center(child: CircularProgressIndicator()),
             ),
             ElevatedButton(
-                onPressed: () => ref.refresh(notionProvider),
-                child: const Text('RELOAD'))
+              onPressed: () => ref.refresh(notionProvider),
+              child: const Text('RELOAD'),
+            ),
           ],
         ),
       ),
@@ -63,24 +64,21 @@ class DatabaseScreen extends HookConsumerWidget {
               padding: const EdgeInsets.all(16),
               child: Row(
                 children: [
-                  Expanded(flex: 1, child: Text("$index")),
+                  Expanded(
+                    flex: 1,
+                    child: Text("$index"),
+                  ),
                   Expanded(
                     flex: 8,
-                    child: Row(
-                      children: [
-                        Text(
-                          title,
-                          style: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5),
-                          child: Chip(label: Text(tag)),
-                        ),
-                      ],
+                    child: _NotionTitle(
+                      title: title,
+                      tag: tag,
                     ),
                   ),
-                  Expanded(flex: 2, child: Text(dateFormat))
+                  Expanded(
+                    flex: 2,
+                    child: Text(dateFormat),
+                  ),
                 ],
               ),
             ),
@@ -93,10 +91,45 @@ class DatabaseScreen extends HookConsumerWidget {
   Column _error(Object e, WidgetRef ref) {
     return Column(
       children: [
-        Text(e.toString()),
+        Text(
+          e.toString(),
+        ),
         ElevatedButton(
-            onPressed: () => ref.refresh(notionProvider.future),
-            child: const Text('reload'))
+          onPressed: () => ref.refresh(notionProvider.future),
+          child: const Text('reload'),
+        ),
+      ],
+    );
+  }
+}
+
+class _NotionTitle extends StatelessWidget {
+  const _NotionTitle({
+    Key? key,
+    required this.title,
+    required this.tag,
+  }) : super(key: key);
+
+  final String title;
+  final String tag;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 5),
+          child: Chip(
+            label: Text(tag),
+          ),
+        ),
       ],
     );
   }

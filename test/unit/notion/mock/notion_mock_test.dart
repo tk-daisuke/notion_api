@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:notion_api/item/model/todo.dart';
 import 'package:notion_api/item/repository/notion_repository.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';

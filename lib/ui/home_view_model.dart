@@ -1,7 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:notion_api/item/model/todo.dart';
-import 'package:notion_api/item/repository/notion_repository.dart';
 
 final homeViewProvider = ChangeNotifierProvider((ref) => HomeViewModel());
 
