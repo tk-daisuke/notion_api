@@ -34,6 +34,7 @@ dev_dependencies:
   # test: ^1.19.2 #https://pub.dev/packages/test
   golden_toolkit: ^0.11.0 #golden_toolkit
   mockito: ^5.0.0 #https://pub.dev/packages/mockito
+  dart_code_metrics: ^4.8.1 #https://pub.dev/packages/dart_code_metrics
 
 # The following section is specific to Flutter.
 flutter:
